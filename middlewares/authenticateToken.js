@@ -6,7 +6,7 @@ module.exports = function authenticateToken(req, res, next) {
 
     if (token == null) return res.sendStatus(401)
 
-    jwt.verify(token, "meteorSecret", () => {
+    jwt.verify(token, "meteorSecret))", () => {
         console.log(err)
 
         if (err) return res.sendStatus(403)

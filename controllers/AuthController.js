@@ -19,7 +19,7 @@ class AuthController {
             const payload = {
                 data: user
             }
-            return jwt.sign(payload, "meteorSecret))", { expiresIn: "24h" })
+            return jwt.sign(payload, process.env.SECRET, { expiresIn: "24h" })
         }
             
         const token = generateAccessToken(user)

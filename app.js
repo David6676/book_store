@@ -1,4 +1,5 @@
 const express = require("express");
+require('dotenv').config()
 
 const AuthController = require("./controllers/AuthController");
 const UserController = require("./controllers/UserController");
@@ -12,9 +13,9 @@ app.use(express.urlencoded({ extended: true })) // for parsing application/x-www
 //////////  Post methods //////////
 
 app.post("/", UserController.addUser);
-app.post("/login", authenticateToken, AuthController.login);
+app.post("/login", AuthController.login);
 
 //////////  Post methods //////////
 
 
-app.listen(8500, () => console.log("Start"));
+app.listen(process.env.PORT, () => console.log("Start"));
