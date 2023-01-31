@@ -2,23 +2,28 @@ module.exports = (connect, Sequelize) => {
     const Users = connect.define("users", {
         name: {
             type: Sequelize.STRING,
+            allowNull: true,
             field: "name"
         },
         surname: {
             type: Sequelize.STRING,
-            field: "surname"
+            field: "surname",
+            allowNull: false,
         },
         age: {
             type: Sequelize.INTEGER,
-            field: "age"
+            field: "age",
+            allowNull: false,
         },
         email: {
             type: Sequelize.STRING,
-            field: "email"
+            field: "email",
+            allowNull: true,
         },
         password: {
             type: Sequelize.STRING,
-            field: "password"
+            field: "password",
+            allowNull: true,
         },
     }, {
         freezeTableName: true

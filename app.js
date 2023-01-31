@@ -19,4 +19,12 @@ app.post("/login", AuthController.login);
 //////////  Post methods //////////
 
 
-app.listen(process.env.PORT, () => console.log("Start"));
+
+//////////  Get methods //////////
+
+app.get("users", authenticateToken, UserController.getUsers)
+
+//////////  Get methods //////////
+
+
+app.listen(process.env.PORT, () => console.log("Listening to the port " + process.env.PORT));

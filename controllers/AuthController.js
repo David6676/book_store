@@ -14,15 +14,15 @@ class AuthController {
         if (!validPassword) {
             return res.status(400).json({ message: "Password is not correct" })
         }
-
+        
         const generateAccessToken = (user) => {
             const payload = {
                 data: user
             }
             return jwt.sign(payload, process.env.SECRET, { expiresIn: "24h" })
         }
-            
         const token = generateAccessToken(user)
+            
         return res.json({ token })
     }
 };
