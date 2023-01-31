@@ -1,6 +1,7 @@
 const { Users } = require("../models");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const { json } = require("express");
 
 
 class AuthController {
@@ -14,16 +15,14 @@ class AuthController {
         if (!validPassword) {
             return res.status(400).json({ message: "Password is not correct" })
         }
-        
-        const generateAccessToken = (user) => {
-            const payload = {
-                data: user
-            }
-            return jwt.sign(payload, process.env.SECRET, { expiresIn: "24h" })
+
+        const payload = {
+            data: user
         }
-        const token = generateAccessToken(user)
-            
-        return res.json({ token })
+
+        const token = jwt.sign(payload, process.env.SECRET, { expiresIn: "24h" })
+
+        return res.send({ token })
     }
 };
 
