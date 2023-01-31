@@ -22,7 +22,7 @@ app.post("/login", AuthController.login);
 
 //////////  Get methods //////////
 
-app.get("users", authenticateToken, UserController.getUsers)
+app.get("/users", UserController.getUsers)
 
 //////////  Get methods //////////
 
