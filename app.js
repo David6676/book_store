@@ -5,18 +5,19 @@ const express = require("express");
 const AuthController = require("./controllers/AuthController");
 const UserController = require("./controllers/UserController");
 const BookController = require("./controllers/BookController")
-const authenticateToken = require("./middlewares/authenticateToken")
+const authenticateToken = require("./middlewares/authenticateToken");
+const upload = require("./middlewares/upload")
 const app = express();
 
 app.use(express.json()) // for parsing application/json
 app.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
-
+app.use(express.static(__dirname + "/static"))
 
 
 //////////  Post methods //////////
 app.post("/", UserController.addUser);
 app.post("/login", AuthController.login);
-app.post("/addBook", BookController.addBook)
+app.post("/addBook", upload.single("photo"), BookController.addBook)
 //////////  Post methods //////////
 
 
