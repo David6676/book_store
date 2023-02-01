@@ -8,7 +8,7 @@ class BookController {
     }
     
     static deleteBook = async (req, res) => {
-        let { id } = req.params
+        let id = req.params
         await Book.destroy({
             where: {
                 id: id

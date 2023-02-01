@@ -12,23 +12,29 @@ app.use(express.json()) // for parsing application/json
 app.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
 
 
-//////////  Post methods //////////
 
+//////////  Post methods //////////
 app.post("/", UserController.addUser);
 app.post("/login", AuthController.login);
 app.post("/addBook", BookController.addBook)
-app.post("/updateBook/:id", BookController.updateBook)
-
 //////////  Post methods //////////
 
 
+//////////  Put methods //////////
+app.put("/updateBook/:id", BookController.updateBook)
+//////////  Put methods //////////
+
+
+//////////  Delete methods //////////
+app.delete("/deleteBook/:id", BookController.deleteBook)
+//////////  Delete methods //////////
+
 
 //////////  Get methods //////////
-app.get("/deleteBook/:id", BookController.deleteBook)
-app.get("books", BookController.getBooks)
+app.get("/books", BookController.getBooks)
 app.get("/users", UserController.getUsers)
-
 //////////  Get methods //////////
+
 
 
 app.listen(process.env.PORT, () => console.log("Listening to the port " + process.env.PORT));
