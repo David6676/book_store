@@ -25,6 +25,11 @@ module.exports = (connect, Sequelize) => {
             allowNull: true,
             field: "author"
         },
+        url: {
+            type: Sequelize.STRING,
+            allowNull: false,
+            field: "url"
+        },
         user_id: {
             type: Sequelize.INTEGER,
             allowNull: true,
