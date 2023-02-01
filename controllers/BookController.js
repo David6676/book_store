@@ -6,7 +6,7 @@ class BookController {
         await Book.create(data)
         res.status(201).send("success")
     }
-    
+
     static deleteBook = async (req, res) => {
         let id = req.params
         await Book.destroy({
@@ -20,7 +20,13 @@ class BookController {
     static updateBook = async (req, res) => {
         let data = req.body
         await Book.update({
-            data
+            name: data.name,
+            genre: data.genre,
+            price: data.price,
+            description: data.description,
+            author: data.author,
+            user_id: data.user_id,
+            url: data.url
         }, {
             where: {
                 id: req.params.id
