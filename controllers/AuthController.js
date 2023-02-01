@@ -1,8 +1,6 @@
 const { Users } = require("../models");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const { json } = require("express");
-
 
 class AuthController {
     static login = async (req, res) => {
