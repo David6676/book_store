@@ -6,7 +6,7 @@ class UserController {
         let data = req.body;
         data.password = bcrypt.hashSync(data.password, 10);
         await Users.create(data);
-        res.status(200).send("success");
+        res.status(201).send("success");
     }
     
     static getUsers = async (req, res) => {

@@ -4,7 +4,7 @@ class BookController {
     static addBook = async (req, res) => {
         let data = req.body
         await Book.create(data)
-        res.status(200).send("success")
+        res.status(201).send("success")
     }
     
     static deleteBook = async (req, res) => {
