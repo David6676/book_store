@@ -17,7 +17,7 @@ app.use(express.static(__dirname + "/static"))
 //////////  Post methods //////////
 app.post("/", UserController.addUser);
 app.post("/login", AuthController.login);
-app.post("/addBook", upload.single("photo"), BookController.addBook)
+app.post("/addBook",/* upload.single("photo"),*/ BookController.addBook)
 //////////  Post methods //////////
 
 
@@ -28,6 +28,7 @@ app.put("/updateBook/:id", BookController.updateBook)
 
 //////////  Delete methods //////////
 app.delete("/deleteBook/:id", BookController.deleteBook)
+app.delete("/deleteUser/:id", UserController.deleteUser)
 //////////  Delete methods //////////
 
 

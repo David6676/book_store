@@ -30,10 +30,10 @@ module.exports = (connect, Sequelize) => {
             allowNull: false,
             field: "url"
         },
-        user_id: {
+        userId: {
             type: Sequelize.INTEGER,
             allowNull: true,
-            field: "userId",
+            field: "user_id",
             references: {
                 model: "users",
                 key: "id"
