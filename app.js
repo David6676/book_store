@@ -5,6 +5,7 @@ const express = require("express");
 const AuthController = require("./controllers/AuthController");
 const UserController = require("./controllers/UserController");
 const BookController = require("./controllers/BookController")
+const AccountController = require("./controllers/AccountController")
 const authenticateToken = require("./middlewares/authenticateToken");
 const upload = require("./middlewares/upload")
 const app = express();
@@ -15,20 +16,20 @@ app.use(express.static(__dirname + "/static"))
 
 
 //////////  Post methods //////////
-app.post("/", UserController.addUser);
-app.post("/login", AuthController.login);
-app.post("/addBook",/* upload.single("photo"),*/ BookController.addBook)
+app.post("/auth/sign-up", AuthController.SignUp);
+app.post("/auth/sign-in", AuthController.SignIn);
+app.post("/addBook", authenticateToken , /* upload.single("photo"),*/ BookController.addBook)
 //////////  Post methods //////////
 
 
 //////////  Put methods //////////
-app.put("/updateBook/:id", BookController.updateBook)
+app.put("/updateBook/:id",authenticateToken, BookController.updateBook)
 //////////  Put methods //////////
 
 
 //////////  Delete methods //////////
-app.delete("/deleteBook/:id", BookController.deleteBook)
-app.delete("/deleteUser/:id", UserController.deleteUser)
+app.delete("/deleteBook/:id", authenticateToken, BookController.deleteBook)
+app.delete("/deleteUser/:id", authenticateToken, AccountController.deleteUser)
 //////////  Delete methods //////////
 
 

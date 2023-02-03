@@ -3,9 +3,18 @@ const { Book } = require("../models");
 class BookController {
     static addBook = async (req, res) => {
         let data = req.body
-        console.log(data);
-        await Book.create(data)
-        res.status(201).send("success")
+
+        let book = await Book.findOne({
+            where: {
+                name: data.name
+            }
+        })
+        if (book) {
+            return res.status(409).send(`A book with this ${data.name} name already exists`)
+        } else {
+            await Book.create(data)
+            res.status(201).send("success")
+        }
     }
 
     static deleteBook = async (req, res) => {
@@ -28,7 +37,7 @@ class BookController {
             description: data.description,
             author: data.author,
             url: data.url,
-            userId: data.user_id    
+            userId: data.user_id
         }, {
             where: {
                 id: req.params.id
