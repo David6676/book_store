@@ -3,7 +3,6 @@ const { Book } = require("../models");
 class BookController {
     static addBook = async (req, res) => {
         let data = req.body
-        console.log(data);
 
         let book = await Book.findOne({
             where: {
@@ -30,7 +29,6 @@ class BookController {
 
     static updateBook = async (req, res) => {
         let data = req.body
-        console.log(data);
         await Book.update({
             name: data.name,
             genre: data.genre,
