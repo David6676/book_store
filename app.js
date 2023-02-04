@@ -18,18 +18,18 @@ app.use(express.static(__dirname + "/static"))
 //////////  Post methods //////////
 app.post("/auth/sign-up", AuthController.SignUp);
 app.post("/auth/sign-in", AuthController.SignIn);
-app.post("/addBook", authenticateToken , /* upload.single("photo"),*/ BookController.addBook)
+app.post("/addBook", /*authenticateToken,  upload.single("photo"),*/ BookController.addBook)
 //////////  Post methods //////////
 
 
 //////////  Put methods //////////
-app.put("/updateBook/:id",authenticateToken, BookController.updateBook)
+app.put("/updateBook/:id", /*authenticateToken,*/ BookController.updateBook)
 //////////  Put methods //////////
 
 
 //////////  Delete methods //////////
-app.delete("/deleteBook/:id", authenticateToken, BookController.deleteBook)
-app.delete("/deleteUser/:id", authenticateToken, AccountController.deleteUser)
+app.delete("/deleteBook/:id", /*authenticateToken,*/ BookController.deleteBook)
+app.delete("/deleteUser/:id", /*authenticateToken,*/ AccountController.deleteUser)
 //////////  Delete methods //////////
 
 

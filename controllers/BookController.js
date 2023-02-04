@@ -3,6 +3,7 @@ const { Book } = require("../models");
 class BookController {
     static addBook = async (req, res) => {
         let data = req.body
+        console.log(data);
 
         let book = await Book.findOne({
             where: {
@@ -18,7 +19,7 @@ class BookController {
     }
 
     static deleteBook = async (req, res) => {
-        let id = req.params
+        let { id } = req.params
         await Book.destroy({
             where: {
                 id: id

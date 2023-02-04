@@ -2,8 +2,8 @@ module.exports = (connect, Sequelize) => {
     const Users = connect.define("users", {
         name: {
             type: Sequelize.STRING,
-            allowNull: true,
-            field: "name"
+            field: "name",
+            allowNull: true
         },
         surname: {
             type: Sequelize.STRING,
