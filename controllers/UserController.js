@@ -1,5 +1,4 @@
 const { Users } = require("../models");
-const bcrypt = require("bcrypt");
 
 class UserController {
 
@@ -7,7 +6,6 @@ class UserController {
         let users = await Users.findAll()
         res.status(200).send({ users });
     }
-
 };
 
 module.exports = UserController;
