@@ -5,6 +5,16 @@ module.exports = (connect, Sequelize) => {
             allowNull: true,
             field: "name"
         },
+        bookUID: {
+            type: Sequelize.STRING,
+            allowNull: true,
+            field: "book_uid"
+        },
+        coverBook: {
+            type: Sequelize.STRING,
+            allowNull: true,
+            field: "cover_book"
+        },
         genre: {
             type: Sequelize.STRING,
             allowNull: false,
@@ -24,11 +34,6 @@ module.exports = (connect, Sequelize) => {
             type: Sequelize.STRING,
             allowNull: true,
             field: "author"
-        },
-        url: {
-            type: Sequelize.STRING,
-            allowNull: false,
-            field: "url"
         },
         userId: {
             type: Sequelize.INTEGER,

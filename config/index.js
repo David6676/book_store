@@ -4,4 +4,4 @@ module.exports = {
     PASSWORD: process.env.PASSWORD,
     DB: process.env.DB,
     DIALECT: process.env.DIALECT
-}
+};
